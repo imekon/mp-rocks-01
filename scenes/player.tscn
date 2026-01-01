@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8dbgwcdppmm1"]
+
+[ext_resource type="Texture2D" uid="uid://cvlj57onhr5oj" path="res://images/blueship.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cq3gdr321577m" path="res://scripts/player.gd" id="1_g2els"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -24, -32, -40, 0, -48, 32, -40, 64, -24, 40, -16, 48, 0, 40, 16, 64, 24, 32, 40, 0, 48, -32, 40, -64, 24, -56, 8, -56, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+texture = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="."]

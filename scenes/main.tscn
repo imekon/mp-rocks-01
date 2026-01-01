@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://e8ncs4h8vaed"]
+
+[ext_resource type="Texture2D" uid="uid://b1ppu1vuagevi" path="res://images/starfield.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://b76y0p8ok3w3e" path="res://scripts/main.gd" id="1_sugp2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sugp2")
+
+[node name="Starfield" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(300, 300)
+texture = ExtResource("1_o5qli")
+region_enabled = true
+region_rect = Rect2(0, 0, 65536, 65536)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true

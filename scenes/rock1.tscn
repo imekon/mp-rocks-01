@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cye1lp8vs78rl"]
+
+[ext_resource type="PackedScene" uid="uid://bmjff4y66148d" path="res://scenes/rock.tscn" id="1_fyui0"]
+[ext_resource type="Texture2D" uid="uid://iugi1ye4xwhf" path="res://images/rock1.png" id="2_w7urf"]
+
+[node name="Rock" instance=ExtResource("1_fyui0")]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-16, -128, 136, -32, 104, 104, -32, 128, -136, 0)
+
+[node name="Sprite2D" parent="CollisionPolygon2D" index="0"]
+texture = ExtResource("2_w7urf")

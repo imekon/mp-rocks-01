@@ -11,7 +11,11 @@ var _rock_id: int = 1
 var _player_id: int = 1
 
 @rpc()
-func rock_status(_id, _x, _y):
+func rock_status(_id, _x, _y, _angle):
+	pass
+
+@rpc()
+func create_player(_name):
 	pass
 	
 @rpc()
@@ -33,13 +37,14 @@ func _ready() -> void:
 	_generate_rocks(140, rock1)
 	
 func _process(_delta: float) -> void:
-	var rocks = get_tree().get_nodes_in_group("rocks")
-	for rock in rocks:
-		rock_status.rpc(rock.id, rock.position.x, rock.position.y)
+	if multiplayer.is_server():
+		var rocks = get_tree().get_nodes_in_group("rocks")
+		for rock in rocks:
+			rock_status.rpc(rock.id, rock.position.x, rock.position.y, rock.rotation_degrees)
 		
-	var players = get_tree().get_nodes_in_group("players")
-	for player in players:
-		player_status.rpc(player.id, player.position.x, player.position.y)
+		var players = get_tree().get_nodes_in_group("players")
+		for play in players:
+			player_status.rpc(play.id, play.position.x, play.position.y)
 
 func _generate_player(play, x, y):
 	var p = play.instantiate()
